@@ -11,6 +11,7 @@ public class HomeLoanApplication {
 		SpringApplication.run(HomeLoanApplication.class, args);
                  System.out.println("Hello CJC Amruta");
                  System.out.println("Line 2 ");
+                 System.out.println("Nitin added ne line");
 	}
 
 }
