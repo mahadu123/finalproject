@@ -8,6 +8,7 @@ public class HomeLoanApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeLoanApplication.class, args);
+		System.out.println("New line added!!!");
 	}
 
 }
