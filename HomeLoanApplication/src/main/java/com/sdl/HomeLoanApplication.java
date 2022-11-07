@@ -7,8 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HomeLoanApplication {
 
 	public static void main(String[] args) {
+           
 		SpringApplication.run(HomeLoanApplication.class, args);
-		System.out.println("New line added!!!");
+
+	
+
+                 System.out.println("Hello CJC Amruta");
+                 System.out.println("Line 2 ");
+
 	}
 
 }
