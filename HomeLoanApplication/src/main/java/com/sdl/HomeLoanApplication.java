@@ -10,7 +10,7 @@ public class HomeLoanApplication {
            
 		SpringApplication.run(HomeLoanApplication.class, args);
 			 System.out.println("Application Running By Master");
-                
+                System.out.println("line added by jyotsna");
 	}
 
 }
