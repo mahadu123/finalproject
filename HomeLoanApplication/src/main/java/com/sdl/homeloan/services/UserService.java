@@ -1,5 +1,10 @@
 package com.sdl.homeloan.services;
 
-public class UserService {
+import com.sdl.homeloan.models.User;
 
+
+
+public interface UserService {
+
+	User loadByUserName(String userName);
 }
