@@ -9,15 +9,8 @@ public class HomeLoanApplication {
 	public static void main(String[] args) {
            
 		SpringApplication.run(HomeLoanApplication.class, args);
-			 System.out.println("Hello Mahadu");
-                 System.out.println("Hello CJC Amruta");
-                 System.out.println("Line 2 ");
-                 System.out.println("Nitin added ne line");
-                 System.out.println("New Line Added By Amruta");
-                 System.out.println("New Line added by Jyotsna");
-                 System.out.println("New Line2 added by Amruta");
-                 System.out.println("second line added by jyotsna");
-                 System.out.println("Sachin");
+			 System.out.println("Application Running By Master");
+                
 	}
 
 }
