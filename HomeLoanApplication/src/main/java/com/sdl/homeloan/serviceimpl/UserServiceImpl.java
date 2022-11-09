@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 	private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
 	@Override
-	public User loadByUserName(String userName) {
+	public User loadByUserName(String userName,String password) {
 		LOGGER.info("User service loadByUserName " + userName);
 
 		User user = userRepo.findByUserName(userName);
@@ -28,6 +28,12 @@ public class UserServiceImpl implements UserService {
 			LOGGER.error("User Not found in databse " + userName);
 		}
 		return user;
+	}
+
+	@Override
+	public User addUser(User user) {
+		
+		return userRepo.save(user);
 	}
 
 }
