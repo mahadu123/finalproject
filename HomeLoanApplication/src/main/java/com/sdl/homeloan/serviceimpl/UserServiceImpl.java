@@ -5,7 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sdl.homeloan.models.BankDetails;
 import com.sdl.homeloan.models.User;
+import com.sdl.homeloan.repository.BankDetailsRepository;
 import com.sdl.homeloan.repository.UserRepository;
 import com.sdl.homeloan.services.UserService;
 
@@ -14,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepo;
+	
+	@Autowired
+	private BankDetailsRepository bankdrepo;
 
 	private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
@@ -34,6 +39,14 @@ public class UserServiceImpl implements UserService {
 	public User addUser(User user) {
 		
 		return userRepo.save(user);
+	}
+
+	@Override
+	public BankDetails addbankDetails(BankDetails bankdetails) {
+		
+		bankdrepo.save(bankdetails);
+		
+		return null;
 	}
 
 }
