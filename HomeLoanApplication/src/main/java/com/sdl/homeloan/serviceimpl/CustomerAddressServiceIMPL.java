@@ -11,7 +11,7 @@ import com.sdl.homeloan.repository.CustomerAddressRepository;
 import com.sdl.homeloan.services.CustomerAddressService;
 
 @Service
-public class CustomerServiceIMPL implements CustomerAddressService{
+public class CustomerAddressServiceIMPL implements CustomerAddressService{
 	
 	@Autowired
 	private CustomerAddressRepository repo;
