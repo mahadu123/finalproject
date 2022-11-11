@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Entity
 public class BankDetails {
 	
-	
 	private String branchname;
 	private double branchcode;
 	@Id
