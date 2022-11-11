@@ -41,12 +41,5 @@ public class UserServiceImpl implements UserService {
 		return userRepo.save(user);
 	}
 
-	@Override
-	public BankDetails addbankDetails(BankDetails bankdetails) {
-		
-		bankdrepo.save(bankdetails);
-		
-		return null;
-	}
 
 }
