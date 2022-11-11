@@ -7,12 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HomeLoanApplication {
-	
+
 	private static final Logger LOGGER = LogManager.getLogger(HomeLoanApplication.class);
 
 	public static void main(String[] args) {
-		
+
 		SpringApplication.run(HomeLoanApplication.class, args);
+
 		LOGGER.info("HomeLoan Application Running........");
 	}
 
