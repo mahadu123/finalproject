@@ -25,3 +25,4 @@ public class CustomerDetails {
 	private Ledger legder;
 	private ApplicationStaus status;
 }
+
