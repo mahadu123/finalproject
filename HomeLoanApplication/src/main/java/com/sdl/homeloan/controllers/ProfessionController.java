@@ -1,5 +1,6 @@
 package com.sdl.homeloan.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -15,8 +16,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.sdl.homeloan.dto.ProfessionalDetails;
 import com.sdl.homeloan.models.Profession;
 import com.sdl.homeloan.services.ProfessionService;
 
@@ -32,6 +36,16 @@ public class ProfessionController {
 	public ResponseEntity<String> saveProfessionInfo(@RequestBody Profession profession){
 		service.saveProfessionInfo(profession);
 		return new ResponseEntity<String>("Profession Information Save Successfully.....",HttpStatus.CREATED);
+		
+	}
+	
+	@PostMapping("/saveSalarySlip")
+	public ResponseEntity<String> saveSalarySlip(@RequestPart MultipartFile f1) throws IOException{
+		ProfessionalDetails details=new ProfessionalDetails();
+		details.setPsalaryslips(f1.getBytes());
+		service.saveSalarySlip(details);
+		
+		return new ResponseEntity<String>("Document added",HttpStatus.OK);
 		
 	}
 	

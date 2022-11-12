@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sdl.homeloan.models.PreviousLoanBank;
-import com.sdl.homeloan.models.Profession;
 import com.sdl.homeloan.repository.PreviousLoanBankRepository;
-import com.sdl.homeloan.repository.ProfessionRepository;
 import com.sdl.homeloan.services.PreviousLoanBankService;
 
 @Service
 public class PreviousLoanBankIMPL implements PreviousLoanBankService {
 	@Autowired
-    private PreviousLoanBankRepository previousLoanBankrepo;
+   private PreviousLoanBankRepository previousLoanBankrepo;
 	
 	private static final Logger LOGGER = LogManager.getLogger(PreviousLoanBankIMPL.class);
 	
