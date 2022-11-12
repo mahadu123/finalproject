@@ -18,7 +18,7 @@ public class CustomerDetails {
 	private PersonalInfo Pinfo;
 	private CustomerAddress cAddr;
 	private AllPersonalDocuments docs;
-	private GuarntorDeatils gDetails;
+	private Guarntor gDetails;
 	private BankDetails bDetails;
 	private Profession profession;
 	private LoanDetails lDetails;
