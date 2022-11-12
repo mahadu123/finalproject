@@ -77,4 +77,16 @@ public class AllPersonalDocumentsServiceImpl implements AllPersonalDocumentsServ
 
 	}
 
+	@Override
+	public AllPersonalDocuments getById(int documentID) {
+	
+		boolean anyMatch = docRepository.findAll().stream().anyMatch(p -> p.getDocumentID() == documentID);
+		
+		if(anyMatch) {
+			AllPersonalDocuments doc =docRepository.findById(documentID).get();
+			return doc;
+		}else
+		return null;
+	}
+
 }

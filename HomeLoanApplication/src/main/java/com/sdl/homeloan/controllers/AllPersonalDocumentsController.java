@@ -71,9 +71,10 @@ public class AllPersonalDocumentsController {
 	}
 
 	@GetMapping("/getById/{documentID}")
-	public ResponseEntity<AllPersonalDocuments> getById(@PathVariable int documentID) {
-		AllPersonalDocuments docById = service.getById(documentID);
-		return new ResponseEntity<AllPersonalDocuments>(docById, HttpStatus.ACCEPTED);
+	public AllPersonalDocuments getById(@PathVariable int documentID) {
+		AllPersonalDocuments doc = service.getById(documentID);
+		return doc;
+
 	}
 
 }
