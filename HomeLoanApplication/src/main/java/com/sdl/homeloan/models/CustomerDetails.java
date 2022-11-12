@@ -7,7 +7,11 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * 
+ * @author Mahadu Mukir
+ *
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,6 +27,6 @@ public class CustomerDetails {
 	private Profession profession;
 	private LoanDetails lDetails;
 	private Ledger legder;
-	private ApplicationStaus status;
+	//private ApplicationStaus status;
 }
 

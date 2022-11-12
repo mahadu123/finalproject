@@ -77,7 +77,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService{
 			cds.setLegder(details.getLegder());
 			cds.setPinfo(details.getPinfo());
 			cds.setProfession(details.getProfession());
-			cds.setStatus(details.getStatus());
+			//cds.setStatus(details.getStatus());
 			return repo.save(details);
 		}
 		else {
