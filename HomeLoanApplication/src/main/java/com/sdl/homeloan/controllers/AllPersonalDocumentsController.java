@@ -64,10 +64,16 @@ public class AllPersonalDocumentsController {
 		return new ResponseEntity<String>("updated", HttpStatus.OK);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/deleteById/{documentID}")
 	public ResponseEntity<String> deleteById(@PathVariable int documentID) {
 		service.deleteById(documentID);
 		return new ResponseEntity<String>("Deleted successfully", HttpStatus.OK);
+	}
+
+	@GetMapping("/getById/{documentID}")
+	public ResponseEntity<AllPersonalDocuments> getById(@PathVariable int documentID) {
+		AllPersonalDocuments docById = service.getById(documentID);
+		return new ResponseEntity<AllPersonalDocuments>(docById, HttpStatus.ACCEPTED);
 	}
 
 }

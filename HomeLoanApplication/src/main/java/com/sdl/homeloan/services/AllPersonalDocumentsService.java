@@ -13,4 +13,6 @@ public interface AllPersonalDocumentsService {
 	AllPersonalDocuments updateById(int documentID);
 
 	String deleteById(int documentID);
+
+	AllPersonalDocuments getById(int customerID);
 }
