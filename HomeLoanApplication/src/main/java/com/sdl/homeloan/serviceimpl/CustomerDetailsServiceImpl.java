@@ -9,44 +9,41 @@ import com.sdl.homeloan.models.CustomerDetails;
 import com.sdl.homeloan.repository.CustomerDetailsRepository;
 import com.sdl.homeloan.services.CustomerDetailsService;
 
-public class CustomerDetailsServiceImpl implements CustomerDetailsService{
+public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Autowired
 	private CustomerDetailsRepository repo;
-	
+
 	@Override
 	public CustomerDetails addCustomer(CustomerDetails details) {
-		
+
 		return repo.save(details);
 	}
-		
 
 	@Override
 	public List<CustomerDetails> getAllCustomer() {
-		
+
 		return repo.findAll();
 	}
 
 	@Override
 	public CustomerDetails getByCid(int cid) {
-		boolean anyMatch = repo.findAll().stream().anyMatch(p->p.getCid()==cid);
+		boolean anyMatch = repo.findAll().stream().anyMatch(p -> p.getCid() == cid);
 		if (anyMatch) {
 			CustomerDetails cdet = repo.findById(cid).get();
 			return cdet;
-		}
-		else {
+		} else {
 			throw new CustomerNotFoundException();
 		}
-		
+
 	}
 
 	@Override
 	public CustomerDetails editDetails(CustomerDetails details) {
-		boolean match = repo.findAll().stream().anyMatch(p->p.getCid()==details.getCid());
-		if(match) {
-				return addCustomer(details);
-		}
-		else {
+		boolean match = repo.findAll().stream().anyMatch(p -> p.getCid() == details.getCid());
+		if (match) {
+			return addCustomer(details);
+		} else {
 			return null;
 		}
 	}
@@ -56,13 +53,9 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService{
 		if (repo.existsById(cid)) {
 			repo.deleteById(cid);
 			return "Deleted Successfully";
-			
-		}
-		else {
+		} else {
 			throw new CustomerNotFoundException();
 		}
-		
-		
 	}
 
 	@Override
@@ -79,12 +72,10 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService{
 			cds.setProfession(details.getProfession());
 			//cds.setStatus(details.getStatus());
 			return repo.save(details);
-		}
-		else {
+		} else {
 			return null;
 		}
-		
+
 	}
 
 }
-
