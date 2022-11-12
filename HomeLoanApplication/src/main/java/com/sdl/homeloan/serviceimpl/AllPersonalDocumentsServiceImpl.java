@@ -8,10 +8,16 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sdl.homeloan.exceptions.CustomerNotFoundException;
 import com.sdl.homeloan.models.AllPersonalDocuments;
 import com.sdl.homeloan.repository.AllPersonalDocumentsRepository;
 import com.sdl.homeloan.services.AllPersonalDocumentsService;
 
+/**
+ * 
+ * @author jyotsna_rathod
+ *
+ */
 @Service
 public class AllPersonalDocumentsServiceImpl implements AllPersonalDocumentsService {
 
@@ -49,8 +55,38 @@ public class AllPersonalDocumentsServiceImpl implements AllPersonalDocumentsServ
 
 	@Override
 	public String deleteById(int documentID) {
-		docRepository.deleteById(documentID);
-		return "Deleted Successfully!!";
+		if (docRepository.existsById(documentID)) {
+			docRepository.deleteById(documentID);
+			return "Deleted Successfully!!";
+		}
+
+		else {
+			throw new CustomerNotFoundException();
+		}
+	}
+
+	@Override
+	public AllPersonalDocuments getById(int documentID) {
+		boolean anyMatch = docRepository.findAll().stream().anyMatch(p -> p.getDocumentID() == documentID);
+		if (anyMatch) {
+			AllPersonalDocuments pDoc = docRepository.findById(documentID).get();
+			return pDoc;
+		} else {
+			throw new CustomerNotFoundException();
+		}
+
+	}
+
+	@Override
+	public AllPersonalDocuments getById(int documentID) {
+	
+		boolean anyMatch = docRepository.findAll().stream().anyMatch(p -> p.getDocumentID() == documentID);
+		
+		if(anyMatch) {
+			AllPersonalDocuments doc =docRepository.findById(documentID).get();
+			return doc;
+		}else
+		return null;
 	}
 
 }
