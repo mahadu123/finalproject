@@ -30,47 +30,48 @@ public class AllPersonalDocumentsController {
 	@Autowired
 	private AllPersonalDocumentsService service;
 
-	@PostMapping("/saveDocuments")
-	public ResponseEntity<String> saveDocument(@RequestPart MultipartFile f1, @RequestPart MultipartFile f2,
-			@RequestPart MultipartFile f3, @RequestPart MultipartFile f4, @RequestPart MultipartFile f5,
-			@RequestPart MultipartFile f6, @RequestPart MultipartFile f7, @RequestPart MultipartFile f8,
-			@RequestPart MultipartFile f9) throws IOException {
+	@PostMapping("/AllDocuments")
+	public ResponseEntity<String> saveDocument(@RequestPart MultipartFile addressProofFile, @RequestPart MultipartFile panCardFile,
+			@RequestPart MultipartFile ITRFile, @RequestPart MultipartFile adharCardFile, @RequestPart MultipartFile photoFile,
+			@RequestPart MultipartFile signatureFile, @RequestPart MultipartFile thumbFile, @RequestPart MultipartFile bankCheckFile,
+			@RequestPart MultipartFile salarySlipsFile) throws IOException {
 		LOGGER.info("Documents Saved");
 		AllPersonalDocuments docs = new AllPersonalDocuments();
-		docs.setAddressProof(f1.getBytes());
-		docs.setPancard(f2.getBytes());
-		docs.setItr(f3.getBytes());
-		docs.setAdharCard(f4.getBytes());
-		docs.setPhoto(f5.getBytes());
-		docs.setSignature(f6.getBytes());
-		docs.setThumb(f7.getBytes());
-		docs.setBankCheque(f8.getBytes());
-		docs.setSlarySlips(f9.getBytes());
+		docs.setAddressProof(addressProofFile.getBytes());
+		docs.setPancard(panCardFile.getBytes());
+		docs.setItr(ITRFile.getBytes());
+		docs.setAdharCard(adharCardFile.getBytes());
+		docs.setPhoto(photoFile.getBytes());
+		docs.setSignature(signatureFile.getBytes());
+		docs.setThumbImpression(thumbFile.getBytes());
+		docs.setBankCheque(bankCheckFile.getBytes());
+		docs.setSalarySlip(salarySlipsFile.getBytes());
 		service.saveDocument(docs);
-		return new ResponseEntity<String>("Saved Docs", HttpStatus.CREATED);
+		return new ResponseEntity<String>("All Documents Saved", HttpStatus.CREATED);
 
 	}
 
-	@GetMapping("/getAllDocs")
+	@GetMapping("/v1/documents")
 	public ResponseEntity<List<AllPersonalDocuments>> getAllDocs() {
-		List<AllPersonalDocuments> allDocs = service.getAllDocs();
-		LOGGER.info(allDocs);
-		return new ResponseEntity<List<AllPersonalDocuments>>(allDocs, HttpStatus.OK);
+		LOGGER.info("Get all documents");
+		List<AllPersonalDocuments> allDocuments = service.getAllDocs();
+		LOGGER.info(String.format("Recived all documents : {0}", allDocuments));
+		return new ResponseEntity<List<AllPersonalDocuments>>(allDocuments, HttpStatus.OK);
 	}
 
-	@PutMapping("/updateById/{documentID}")
+	@PutMapping("/v1/documents/{documentID}")
 	public ResponseEntity<String> updateById(@PathVariable int documentID) {
 		AllPersonalDocuments newDoc = service.updateById(documentID);
 		return new ResponseEntity<String>("updated", HttpStatus.OK);
 	}
 
-	@DeleteMapping("/deleteById/{documentID}")
+	@DeleteMapping("/v1/documents/{documentID}")
 	public ResponseEntity<String> deleteById(@PathVariable int documentID) {
 		service.deleteById(documentID);
 		return new ResponseEntity<String>("Deleted successfully", HttpStatus.OK);
 	}
 
-	@GetMapping("/getById/{documentID}")
+	@GetMapping("/v1/documents/{documentID}")
 	public AllPersonalDocuments getById(@PathVariable int documentID) {
 		AllPersonalDocuments doc = service.getById(documentID);
 		return doc;

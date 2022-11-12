@@ -32,23 +32,24 @@ public class AllPersonalDocumentsServiceImpl implements AllPersonalDocumentsServ
 		return personalDocs;
 	}
 
+	//used java8 feature reference method
 	@Override
 	public List<AllPersonalDocuments> getAllDocs() {
-		List<AllPersonalDocuments> AllDocuments = docRepository.findAll();
-		AllDocuments.forEach(System.out::println);
-		return AllDocuments;
+		List<AllPersonalDocuments> allDocuments = docRepository.findAll();
+		allDocuments.forEach(System.out::println);
+		return allDocuments;
 	}
 
 	@Override
 	public AllPersonalDocuments updateById(int documentID) {
-		Optional<AllPersonalDocuments> existigDoc = docRepository.findById(documentID);
-		if (existigDoc.isPresent()) {
-			AllPersonalDocuments personalDocs = existigDoc.get();
-			personalDocs.setBankCheque(personalDocs.getBankCheque());
-			personalDocs.setPhoto(personalDocs.getPhoto());
-			personalDocs.setSlarySlips(personalDocs.getSlarySlips());
-			AllPersonalDocuments updatedDocs = docRepository.save(personalDocs);
-			return updatedDocs;
+		Optional<AllPersonalDocuments> existingDocument = docRepository.findById(documentID);
+		if (existingDocument.isPresent()) {
+			AllPersonalDocuments personalDocuments = existingDocument.get();
+			personalDocuments.setBankCheque(personalDocuments.getBankCheque());
+			personalDocuments.setPhoto(personalDocuments.getPhoto());
+			personalDocuments.setSalarySlip(personalDocuments.getSalarySlip());
+			AllPersonalDocuments updatedDocuments = docRepository.save(personalDocuments);
+			return updatedDocuments;
 		}
 		return null;
 	}
@@ -59,34 +60,22 @@ public class AllPersonalDocumentsServiceImpl implements AllPersonalDocumentsServ
 			docRepository.deleteById(documentID);
 			return "Deleted Successfully!!";
 		}
-
 		else {
 			throw new CustomerNotFoundException();
 		}
 	}
 
+	//Java 8 feature functional interface 'Optional' is used
 	@Override
 	public AllPersonalDocuments getById(int documentID) {
-		boolean anyMatch = docRepository.findAll().stream().anyMatch(p -> p.getDocumentID() == documentID);
-		if (anyMatch) {
-			AllPersonalDocuments pDoc = docRepository.findById(documentID).get();
-			return pDoc;
+		Optional<AllPersonalDocuments> opPersonalDoc = docRepository.findById(documentID);
+		if (opPersonalDoc.isPresent()) {
+			AllPersonalDocuments personalDoc = opPersonalDoc.get();
+			return personalDoc;
 		} else {
 			throw new CustomerNotFoundException();
 		}
 
-	}
-
-	@Override
-	public AllPersonalDocuments getById(int documentID) {
-	
-		boolean anyMatch = docRepository.findAll().stream().anyMatch(p -> p.getDocumentID() == documentID);
-		
-		if(anyMatch) {
-			AllPersonalDocuments doc =docRepository.findById(documentID).get();
-			return doc;
-		}else
-		return null;
 	}
 
 }
