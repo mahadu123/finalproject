@@ -3,12 +3,13 @@ package com.sdl.homeloan.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sdl.homeloan.exceptions.CustomerNotFoundException;
 import com.sdl.homeloan.models.CustomerDetails;
 import com.sdl.homeloan.repository.CustomerDetailsRepository;
 import com.sdl.homeloan.services.CustomerDetailsService;
-
+@Service
 public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Autowired
