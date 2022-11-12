@@ -15,4 +15,5 @@ public interface AllPersonalDocumentsService {
 	String deleteById(int documentID);
 
 	AllPersonalDocuments getById(int documentID);
+
 }

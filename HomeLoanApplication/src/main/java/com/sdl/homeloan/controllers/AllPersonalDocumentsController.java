@@ -74,6 +74,7 @@ public class AllPersonalDocumentsController {
 	public AllPersonalDocuments getById(@PathVariable int documentID) {
 		AllPersonalDocuments doc = service.getById(documentID);
 		return doc;
+
 	}
 
 }

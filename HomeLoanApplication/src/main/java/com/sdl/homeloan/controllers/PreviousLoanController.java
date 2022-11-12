@@ -44,4 +44,3 @@ public class PreviousLoanController {
 	 * ResponseEntity<Profession>(updateById,HttpStatus.OK); }
 	 */
 }
-s
