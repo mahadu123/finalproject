@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sdl.homeloan.dto.ProfessionalDetails;
 import com.sdl.homeloan.models.Profession;
 import com.sdl.homeloan.repository.ProfessionRepository;
 import com.sdl.homeloan.repository.ProfessionalDTORepository;
@@ -19,8 +18,7 @@ public class ProfessionServiceIMPL implements ProfessionService {
     @Autowired
     private ProfessionRepository professionrepo;
     
-    @Autowired
-    private ProfessionalDTORepository repo;
+   
     
     private static final Logger LOGGER = LogManager.getLogger(ProfessionServiceIMPL.class);
     
@@ -40,7 +38,7 @@ public class ProfessionServiceIMPL implements ProfessionService {
 	}
 
 	@Override
-	public List getAll() {
+	public List<Profession> getAll() {
 		List<Profession> findAll = professionrepo.findAll();
 		
 		return findAll;
@@ -68,9 +66,5 @@ public class ProfessionServiceIMPL implements ProfessionService {
 		}
 	}
 
-	@Override
-	public String saveSalarySlip(ProfessionalDetails details) {
-		repo.save(details);
-		return "Save Documents";
-	}
+	
 }
