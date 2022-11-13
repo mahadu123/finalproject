@@ -9,22 +9,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class LocalAddress {
+@NoArgsConstructor
+@Entity
+public class PropertyAddress {
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int lid;
+	private int paid;
 	private String areaName;
 	private String cityName;
 	private String district;
 	private String state;
 	private int pincode;
-	private int houseno;
 	private String streetName;
-	
 
 }
