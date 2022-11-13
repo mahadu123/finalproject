@@ -23,7 +23,7 @@ public class PropertyAddress {
 	private String cityName;
 	private String district;
 	private String state;
-	private double pincode;
+	private int pincode;
 	private String streetName;
 
 }

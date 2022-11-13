@@ -7,7 +7,5 @@ import com.sdl.homeloan.models.PropertyInfo;
 @Repository
 public interface PropertyInfoRepository extends JpaRepository<PropertyInfo, Integer> {
 	
-	public void  saveAllDoc(PropertyInfo pi, PropertyInfo pr);
-	
 
 }

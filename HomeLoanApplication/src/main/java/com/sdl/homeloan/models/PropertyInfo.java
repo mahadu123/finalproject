@@ -1,5 +1,6 @@
 package com.sdl.homeloan.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,6 @@ public class PropertyInfo {
 	private double constructionPrice;
 	@Lob
 	private byte[] propertyDocument;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyAddress padr;
 }
