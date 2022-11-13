@@ -49,6 +49,7 @@ public class GuarntorServiceIMPL implements GuarntorService {
 
 	@Override
 	public String updateGuarantor(Guarntor guarantor) {
+		
         repo.save(guarantor);
 		
 		return "UPDATED";
