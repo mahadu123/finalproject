@@ -1,9 +1,11 @@
 package com.sdl.homeloan.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.ToString;
@@ -25,6 +27,8 @@ public class LoanDetails {
 	private String sanctiondate;
 	private String remark;
 	private String satus;
+	@OneToOne(cascade = CascadeType.ALL)
+	private EmiDetails emid;
 	
 
 }

@@ -9,23 +9,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class PreviousLoanBank {
+@AllArgsConstructor
+@Entity
+public class EmiDetails {
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int branchId;
-	private String branchName;
-	private double branchCode;
-	private String branchType;
-	private String ifscCode;
-	private String micrCode;
-	private double conatctNO;
-	private String branchAddress;
-	private String email;
-	private String status;
-
-
+	private int emiID;
+	private double emiAmountMonthly;
+	private String nextEmiDueDate;
+	private String previousEmiStatus;
 }

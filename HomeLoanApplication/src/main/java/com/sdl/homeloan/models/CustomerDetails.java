@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 /**
  * 
  * @author Mahadu Mukir
- *
+ *@category CustomerDetails
  */
 @Entity
 @Data
@@ -37,7 +37,14 @@ public class CustomerDetails {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Ledger legder;
 	@OneToOne(cascade = CascadeType.ALL)
+	private PreviousLoan ploan;
+	@OneToOne(cascade = CascadeType.ALL)
+	private SanctionLetter sletter;
+	@OneToOne(cascade = CascadeType.ALL)
 	private PropertyInfo prinfo;
-	//private ApplicationStaus status;
+	
+
+
+
 }
 
