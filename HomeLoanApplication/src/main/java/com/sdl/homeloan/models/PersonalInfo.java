@@ -16,16 +16,16 @@ import lombok.ToString;
 public class PersonalInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int eId;
-	private String name;
-	private String dob;
-	private int age ;
-	private String gender;
-	
-	private String email;
-	private long mobileNo;
-	private String pancardNo;
-	private long AdharCardNo;
+		private int eId;
+		private String name;
+		private String dob;
+		private int age ;
+		private String gender;
+		
+		private String email;
+		private long mobileNo;
+		private String pancardNo;
+		private long AdharCardNo;
 	//@OneToMany
 	//private CustomerAddress address;
 	private String TypeofLoan;

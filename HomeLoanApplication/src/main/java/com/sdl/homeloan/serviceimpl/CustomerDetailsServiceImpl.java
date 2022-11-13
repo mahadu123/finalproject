@@ -3,12 +3,13 @@ package com.sdl.homeloan.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sdl.homeloan.exceptions.CustomerNotFoundException;
 import com.sdl.homeloan.models.CustomerDetails;
 import com.sdl.homeloan.repository.CustomerDetailsRepository;
 import com.sdl.homeloan.services.CustomerDetailsService;
-
+@Service
 public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Autowired
@@ -50,7 +51,8 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Override
 	public String deleteById(int cid) {
-		if (repo.existsById(cid)) {
+		boolean anyMatch = repo.findAll().stream().anyMatch(p -> p.getCid() == cid);
+		if (anyMatch) {
 			repo.deleteById(cid);
 			return "Deleted Successfully";
 		} else {
@@ -70,7 +72,8 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 			cds.setLegder(details.getLegder());
 			cds.setPinfo(details.getPinfo());
 			cds.setProfession(details.getProfession());
-		//	cds.setStatus(details.getStatus());
+
+
 			return repo.save(details);
 		} else {
 			return null;

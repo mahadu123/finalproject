@@ -9,22 +9,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LocalAddress {
-	
+@Entity
+public class EmiDetails {
+ 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int lid;
-	private String areaName;
-	private String cityName;
-	private String district;
-	private String state;
-	private int pincode;
-	private int houseno;
-	private String streetName;
-	
-
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int emiID;
+	private double emiAmountMonthly;
+	private String nextEmiDueDate;
+	private String previousEmiStatus;
 }

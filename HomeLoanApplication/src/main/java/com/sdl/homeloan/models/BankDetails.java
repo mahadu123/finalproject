@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 public class BankDetails {
 	
 	private String branchname;
-	private double branchcode;
+	private int branchcode;
 	@Id
 	private int branchid;
 	private String branchtype;
 	private String ifscCode;
 	private String  micrCode;
-	private double conatctNO;
+	private long conatctNO;
 	private String branchaddress;
 	private String email;
 	private String status;
