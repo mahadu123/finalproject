@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sdl.homeloan.models.CustomerDetails;
 import com.sdl.homeloan.services.CustomerDetailsService;
 
+
 @RestController
 @RequestMapping("/custDetails")
 public class CustomerDetailsController {
-
 	@Autowired
 	private CustomerDetailsService service;
 	@PostMapping("/addCustomer")
@@ -37,7 +37,7 @@ public class CustomerDetailsController {
 		return new ResponseEntity<List<CustomerDetails>>(list,HttpStatus.OK);
 	}
 	@GetMapping("/getById/{cid}")
-	public ResponseEntity<CustomerDetails> getById(@RequestParam int cid) {
+	public ResponseEntity<CustomerDetails> getById(@PathVariable int cid) {
 		CustomerDetails cuid = service.getByCid(cid);
 		return new ResponseEntity<CustomerDetails>(cuid,HttpStatus.OK);
 	}
@@ -51,8 +51,8 @@ public class CustomerDetailsController {
 			return new ResponseEntity<String>("Customer Not Found",HttpStatus.NOT_FOUND);
 		}
 	}
-	@DeleteMapping("deleteById/{cid}")
-	public ResponseEntity<String> deleteById(@RequestParam int cid) {
+	@DeleteMapping("/deleteById/{cid}")
+	public ResponseEntity<String> deleteById(@PathVariable int cid) {
 		String id = service.deleteById(cid);
 		return new ResponseEntity<String>(id,HttpStatus.OK);
 	}
