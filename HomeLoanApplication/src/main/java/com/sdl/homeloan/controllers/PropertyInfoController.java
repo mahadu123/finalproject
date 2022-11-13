@@ -18,9 +18,17 @@ import com.sdl.homeloan.services.PropertyInfoService;
 @RestController
 @RequestMapping("/proadr")
 public class PropertyInfoController {
+	
+	/**
+	 * @author Dhiraj
+	 * @category PropertyInfo
+	 * 
+	 */
+	
 
 	@Autowired
 	private PropertyInfoService service;
+	
 
 	@PostMapping("/insertp")
 	public ResponseEntity<String> insertProperty(@RequestBody PropertyInfoDTO dto) {

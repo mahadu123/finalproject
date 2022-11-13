@@ -16,5 +16,4 @@ public class HomeLoanApplication {
 
 		LOGGER.info("HomeLoan Application Running........");
 	}
-
 }

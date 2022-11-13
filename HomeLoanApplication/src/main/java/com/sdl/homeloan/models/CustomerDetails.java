@@ -23,5 +23,5 @@ public class CustomerDetails {
 	private Profession profession;
 	private LoanDetails lDetails;
 	private Ledger legder;
-	private ApplicationStaus status;
+	//private ApplicationStaus status;
 }
