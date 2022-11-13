@@ -1,6 +1,5 @@
 package com.sdl.homeloan.controllers;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -15,12 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.sdl.homeloan.dto.ProfessionalDetails;
 import com.sdl.homeloan.models.Profession;
 import com.sdl.homeloan.services.ProfessionService;
 
@@ -39,22 +34,14 @@ public class ProfessionController {
 		
 	}
 	
-	@PostMapping("/saveSalarySlip")
-	public ResponseEntity<String> saveSalarySlip(@RequestPart MultipartFile f1) throws IOException{
-		ProfessionalDetails details=new ProfessionalDetails();
-		details.setPsalaryslips(f1.getBytes());
-		service.saveSalarySlip(details);
-		
-		return new ResponseEntity<String>("Document added",HttpStatus.OK);
-		
-	}
+	
 	
 	@GetMapping("/getAll")
-	public ResponseEntity<List> getAll(){
-		List all = service.getAll();
+	public ResponseEntity<List<Profession>> getAll(){
+		List<Profession> all = service.getAll();
 		LOGGER.info(all);
 		all.forEach(System.out::println);
-		return new ResponseEntity<List>(all,HttpStatus.OK);
+		return new ResponseEntity<List<Profession>>(all,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deleteById/{pid}")
