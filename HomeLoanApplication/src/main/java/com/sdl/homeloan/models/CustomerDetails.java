@@ -1,5 +1,6 @@
 package com.sdl.homeloan.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,21 +21,21 @@ import lombok.NoArgsConstructor;
 public class CustomerDetails {
 	@Id
 	private int cid;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private PersonalInfo Pinfo;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress cAddr;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private AllPersonalDocuments docs;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Guarntor gDetails;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private BankDetails bDetails;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Profession profession;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private LoanDetails lDetails;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Ledger legder;
 	//private ApplicationStaus status;
 }

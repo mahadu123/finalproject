@@ -51,7 +51,8 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Override
 	public String deleteById(int cid) {
-		if (repo.existsById(cid)) {
+		boolean anyMatch = repo.findAll().stream().anyMatch(p -> p.getCid() == cid);
+		if (anyMatch) {
 			repo.deleteById(cid);
 			return "Deleted Successfully";
 		} else {
