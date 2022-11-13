@@ -1,4 +1,4 @@
-package com.sdl.homeloan.models;
+ package com.sdl.homeloan.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,12 +39,12 @@ public class AllPersonalDocuments {
 	private byte[] signature;
 
 	@Lob
-	private byte[] thumb;
+	private byte[] thumbImpression;
 
 	@Lob
 	private byte[] bankCheque;
 
 	@Lob
-	private byte[] slarySlips;
+	private byte[] salarySlip;
 
 }
