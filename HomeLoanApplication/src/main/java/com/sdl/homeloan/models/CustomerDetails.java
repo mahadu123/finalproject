@@ -37,7 +37,8 @@ public class CustomerDetails {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Ledger legder;
 
-//	private ApplicationStatus status;
+
+
 
 
 }
