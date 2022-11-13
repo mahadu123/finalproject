@@ -36,6 +36,9 @@ public class CustomerDetails {
 	private LoanDetails lDetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Ledger legder;
-	//private ApplicationStaus status;
+
+//	private ApplicationStatus status;
+
+
 }
 
