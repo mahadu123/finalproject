@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class guarntorPermanantAddress {
+public class GuarantorPermanantAddress {
+	
 	@Id
 	private int houseno;
 	private String cityname;

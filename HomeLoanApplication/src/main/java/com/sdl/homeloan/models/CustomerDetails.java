@@ -27,7 +27,7 @@ public class CustomerDetails {
 	@OneToOne(cascade = CascadeType.ALL)
 	private AllPersonalDocuments docs;
 	@OneToOne(cascade = CascadeType.ALL)
-	private Guarntor gDetails;
+	private Guarantor gDetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private BankDetails bDetails;
 	@OneToOne(cascade = CascadeType.ALL)
