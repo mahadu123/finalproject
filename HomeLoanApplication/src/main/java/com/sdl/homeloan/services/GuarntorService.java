@@ -1,18 +1,19 @@
 package com.sdl.homeloan.services;
 
-import com.sdl.homeloan.models.Guarntor;
+import com.sdl.homeloan.models.Guarantor;
+
 
 import java.util.List;
 
 
 public interface GuarntorService {
 	
-	String insertGuarantor(Guarntor guarantor);
+	String insertGuarantor(Guarantor guarantor);
 
-	List<Guarntor> getAllGuarantor();
+	List<Guarantor> getAllGuarantor();
 
-	String updateGuarantor(Guarntor guarantor);
+	String updateGuarantor(Guarantor guarantor);
 
-	Guarntor getGuarantorbyId(int guarantorId);
+	Guarantor getGuarantorbyId(int guarantorId);
 
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class guarantorJobDetail {
+public class GuarantorJobDetail {
 	@Id
 	private int empid;
 	private String companyname;

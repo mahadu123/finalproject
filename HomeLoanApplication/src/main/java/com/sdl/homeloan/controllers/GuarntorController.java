@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import com.sdl.homeloan.models.Guarntor;
+import com.sdl.homeloan.models.Guarantor;
+
 import com.sdl.homeloan.services.GuarntorService;
 
 @RestController
@@ -23,7 +24,7 @@ public class GuarntorController {
 	private GuarntorService service;
 
 	@PostMapping("/insertGuarantor")
-	public ResponseEntity<String> insertGuarantor(@RequestBody Guarntor guarantor) {
+	public ResponseEntity<String> insertGuarantor(@RequestBody Guarantor guarantor) {
 		System.out.println(guarantor);
 		//http://localhost:8081/g/insertGuarantor
 		
@@ -36,29 +37,29 @@ public class GuarntorController {
 
 	
 	@GetMapping("/getAllGuarantor")
-	public ResponseEntity<List<Guarntor>>getAllGuarantor(){
+	public ResponseEntity<List<Guarantor>>getAllGuarantor(){
 		
 	     //http://localhost:8081/g/getAllGuarantor
 		
-	     List<Guarntor> list = service.getAllGuarantor();
+	     List<Guarantor> list = service.getAllGuarantor();
 	     
-		return new ResponseEntity<List<Guarntor>>(list,HttpStatus.OK);
+		return new ResponseEntity<List<Guarantor>>(list,HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/getGuarantorbyId/{guarantorId}")
-	public ResponseEntity<Guarntor>getGuarantorbyId(@PathVariable int guarantorId){
+	public ResponseEntity<Guarantor>getGuarantorbyId(@PathVariable int guarantorId){
 		
 		 //http://localhost:8081/g/getGuarantorbyId/1011
 		
-		Guarntor guarantor = service.getGuarantorbyId(guarantorId);
+		Guarantor guarantor = service.getGuarantorbyId(guarantorId);
 		
-		return new ResponseEntity<Guarntor>(guarantor,HttpStatus.OK);
+		return new ResponseEntity<Guarantor>(guarantor,HttpStatus.OK);
 	}
 
 	
 	@PutMapping("/updateGuarantor")
-	public ResponseEntity<String>updateGuarantor(@RequestBody Guarntor guarantor){
+	public ResponseEntity<String>updateGuarantor(@RequestBody Guarantor guarantor){
 		
 		// //http://localhost:8081/g/updateGuarantor
 		

@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sdl.homeloan.exceptions.InvalidGuarantorException;
-import com.sdl.homeloan.models.Guarntor;
+import com.sdl.homeloan.models.Guarantor;
+
 import com.sdl.homeloan.repository.GuarntorRepository;
 import com.sdl.homeloan.services.GuarntorService;
 
@@ -19,7 +20,7 @@ public class GuarntorServiceIMPL implements GuarntorService {
 
 
 	@Override
-	public String insertGuarantor(Guarntor guarantor) {
+	public String insertGuarantor(Guarantor guarantor) {
 		if (guarantor.getGuarantorId()>0 && guarantor.getGuarantorId()<19999&& !guarantor.getGuarantorName().isEmpty() && guarantor.getGuarantorName().length()<=10) {
 			
 			if (!repo.existsById(guarantor.getGuarantorId())) {
@@ -41,14 +42,14 @@ public class GuarntorServiceIMPL implements GuarntorService {
 
 
 	@Override
-	public List<Guarntor> getAllGuarantor() {
+	public List<Guarantor> getAllGuarantor() {
 		return repo.findAll();
 	}
 
 
 
 	@Override
-	public String updateGuarantor(Guarntor guarantor) {
+	public String updateGuarantor(Guarantor guarantor) {
         repo.save(guarantor);
 		
 		return "UPDATED";
@@ -57,8 +58,8 @@ public class GuarntorServiceIMPL implements GuarntorService {
 
 
 	@Override
-	public Guarntor getGuarantorbyId(int guarantorId) {
-        Guarntor gut = repo.findById(guarantorId).get();
+	public Guarantor getGuarantorbyId(int guarantorId) {
+        Guarantor gut = repo.findById(guarantorId).get();
 		
 		return gut;
 	}

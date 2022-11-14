@@ -13,22 +13,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Guarntor {
+public class Guarantor {
 	
 	@Id
 	private int guarantorId;
 	private String guarantorName;
 	private String guarantorDateofBirth;
 	private String guarantorRelationshipwithCustomer;
-	private double guarantorMobNo;
-	private double guarantorAdhaarCardNo;
+	private long guarantorMobNo;
+	private long guarantorAdhaarCardNo;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private guarantorJobDetail guarantorjob;
+	private GuarantorJobDetail guarantorjob;
 	
     @OneToOne(cascade=CascadeType.ALL)
-	private guarntorPermanantAddress guarantoraddress;
+	private GuarantorPermanantAddress guarantoraddress;
 	
-	
+
 
 }
